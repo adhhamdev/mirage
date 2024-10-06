@@ -1,6 +1,8 @@
 import { put } from '@vercel/blob';
 import { NextResponse } from 'next/server';
 
+export const runtime = 'edge';
+
 export async function POST(req) {
   try {
     const { prompt, width, height } = await req.json();
