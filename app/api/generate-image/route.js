@@ -1,3 +1,4 @@
+import { put } from '@vercel/blob';
 import { NextResponse } from 'next/server';
 
 export const runtime = 'edge';
@@ -10,7 +11,7 @@ export async function POST(req) {
       'https://api-inference.huggingface.co/models/black-forest-labs/FLUX.1-dev',
       {
         headers: {
-          Authorization: 'Bearer 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',
+          Authorization: `Bearer ${process.env.HUGGINGFACE_API_KEY}`,
         },
         method: 'POST',
         body: JSON.stringify({ inputs: prompt }),
@@ -22,9 +23,12 @@ export async function POST(req) {
     }
 
     const result = await response.blob();
-    const imageUrl = URL.createObjectURL(result);
 
-    return NextResponse.json({ imageUrl });
+    const { url } = await put('images/image.png', result, {
+      access: 'public',
+    });
+
+    return NextResponse.json({ imageUrl: url });
   } catch (error) {
     console.error('Error generating image:', error);
     return NextResponse.json(

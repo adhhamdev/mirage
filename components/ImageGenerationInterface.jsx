@@ -44,10 +44,19 @@ export default function ImageGenerationInterface() {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className='flex flex-col flex-1 p-4 bg-white shadow-lg dark:bg-gray-800 rounded-3xl'>
+      className='flex flex-col flex-1 p-4 border border-gray-200 dark:border-gray-700 rounded-3xl'>
       <div className='flex-1 mb-4 space-y-4 overflow-y-auto'>
         <AnimatePresence>
-          {generatedImage && (
+          {isGenerating && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className='relative w-full aspect-square bg-gray-200 dark:bg-gray-700 rounded-2xl overflow-hidden'>
+              <div className='absolute inset-0 shimmer-effect'></div>
+            </motion.div>
+          )}
+          {generatedImage && !isGenerating && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -56,14 +65,13 @@ export default function ImageGenerationInterface() {
               <Image
                 src={generatedImage}
                 alt='Generated image'
-                className='object-fill rounded-2xl'
-                width={400}
-                height={400}
+                className='object-cover rounded-2xl'
+                layout='fill'
               />
               <a
                 href={generatedImage}
                 download='generated_image.png'
-                className='absolute flex items-center px-3 py-1 text-sm text-blue-500 transition-colors duration-200 bg-white rounded-full bottom-2 right-2 dark:bg-gray-800 hover:bg-blue-100 dark:hover:bg-gray-700'>
+                className='absolute flex items-center px-3 py-1 text-sm text-black transition-colors duration-200 bg-white border border-black rounded-full bottom-2 right-2 dark:text-white dark:bg-black dark:border-white hover:bg-gray-100 dark:hover:bg-gray-900'>
                 <Download size={16} className='mr-1' /> Download
               </a>
             </motion.div>
@@ -73,7 +81,7 @@ export default function ImageGenerationInterface() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className='flex items-center p-4 text-red-700 bg-red-100 dark:bg-red-900 dark:text-red-100 rounded-3xl'>
+              className='flex items-center p-4 text-black bg-white border border-black dark:text-white dark:bg-black dark:border-white rounded-3xl'>
               <AlertCircle size={20} className='mr-2' />
               {error}
             </motion.div>
@@ -86,12 +94,12 @@ export default function ImageGenerationInterface() {
           value={prompt}
           onChange={(e) => setPrompt(e.target.value)}
           placeholder='Describe the image you want to generate...'
-          className='flex-1 px-4 py-2 bg-gray-100 rounded-full dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500'
+          className='flex-1 px-4 py-2 bg-white border border-gray-300 rounded-full dark:bg-black dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white'
         />
         <button
           type='submit'
           disabled={isGenerating || !prompt.trim()}
-          className={`bg-blue-500 hover:bg-blue-600 text-white rounded-full p-2 transition-colors duration-200 ${
+          className={`bg-black hover:bg-gray-800 text-white dark:bg-white dark:hover:bg-gray-200 dark:text-black rounded-full p-2 transition-colors duration-200 ${
             isGenerating || !prompt.trim()
               ? 'opacity-50 cursor-not-allowed'
               : ''

@@ -40,3 +40,38 @@ body {
   border-radius: 20px;
   border: transparent;
 }
+
+/* Add this at the end of the file */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.shimmer-effect {
+  animation: shimmer 2s infinite linear;
+  background: linear-gradient(
+    to right,
+    #f6f7f8 0%,
+    #edeef1 20%,
+    #f6f7f8 40%,
+    #f6f7f8 100%
+  );
+  background-size: 1000px 100%;
+}
+
+/* Dark mode shimmer effect */
+@media (prefers-color-scheme: dark) {
+  .shimmer-effect {
+    background: linear-gradient(
+      to right,
+      #2d3748 0%,
+      #4a5568 20%,
+      #2d3748 40%,
+      #2d3748 100%
+    );
+  }
+}
