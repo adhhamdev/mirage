@@ -5,7 +5,7 @@ export const runtime = 'edge';
 
 export async function POST(req) {
   try {
-    const { prompt } = await req.json();
+    const { prompt, width, height } = await req.json();
 
     const response = await fetch(
       'https://api-inference.huggingface.co/models/black-forest-labs/FLUX.1-dev',
@@ -14,7 +14,13 @@ export async function POST(req) {
           Authorization: `Bearer ${process.env.HUGGINGFACE_API_KEY}`,
         },
         method: 'POST',
-        body: JSON.stringify({ inputs: prompt }),
+        body: JSON.stringify({
+          inputs: prompt,
+          parameters: {
+            num_inference_steps: 100,
+            target_size: { width, height },
+          },
+        }),
       }
     );
 
