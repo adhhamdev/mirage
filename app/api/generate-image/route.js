@@ -10,7 +10,7 @@ export async function POST(req) {
     console.log('Generating image:', prompt, width, height);
 
     const response = await fetch(
-      'https://api-inference.huggingface.co/models/black-forest-labs/FLUX.1-dev',
+      'https://api-inference.huggingface.co/models/black-forest-labs/FLUX.1-schnell',
       {
         headers: {
           Authorization: `Bearer ${process.env.HUGGINGFACE_API_KEY}`,
