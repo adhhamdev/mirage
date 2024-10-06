@@ -1,10 +1,8 @@
 import ImageGenerationInterface from '@/components/ImageGenerationInterface';
-import ImageGenerationList from '@/components/ImageGenerationList';
 
 export default function Home() {
   return (
-    <main className='flex flex-col md:flex-row h-screen gap-6 p-6'>
-      <ImageGenerationList />
+    <main className='gap-6 p-6 md:flex-row'>
       <ImageGenerationInterface />
     </main>
   );

@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@types/node": "^22.7.4",
+    "@types/react": "^18.3.11",
     "@vercel/blob": "^0.24.1",
     "ai": "^3.4.9",
     "framer-motion": "^11.11.1",
