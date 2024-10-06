@@ -52,7 +52,7 @@ export default function ImageGenerationInterface() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className='relative w-full max-w-[512px] mx-auto aspect-square bg-gray-200 rounded-2xl overflow-hidden'>
+              className='overflow-hidden relative mx-auto w-full bg-gray-200 rounded-2xl max-w-96 aspect-square'>
               <div className='absolute inset-0 shimmer-effect'></div>
             </motion.div>
           )}
@@ -61,7 +61,7 @@ export default function ImageGenerationInterface() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className='relative w-full max-w-[512px] mx-auto aspect-square'>
+              className='relative mx-auto w-full max-w-96 aspect-square'>
               <Image
                 src={generatedImage}
                 alt='Mirage AI Image'
