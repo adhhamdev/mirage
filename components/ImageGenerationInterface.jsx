@@ -8,7 +8,7 @@ import { useState } from 'react';
 export default function ImageGenerationInterface() {
   const [prompt, setPrompt] = useState('');
   const [generatedImage, setGeneratedImage] = useState(null);
-  const [isGenerating, setIsGenerating] = useState(null);
+  const [isGenerating, setIsGenerating] = useState(false);
   const [error, setError] = useState(null);
 
   const handleSubmit = async (e) => {
@@ -44,15 +44,15 @@ export default function ImageGenerationInterface() {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className='flex flex-col flex-1 p-6 bg-white shadow-lg dark:bg-gray-800 rounded-3xl'>
-      <div className='flex-1 mb-6 space-y-6 overflow-y-auto'>
+      className='flex flex-col flex-1 p-4 bg-gray-100 rounded-3xl shadow-lg sm:p-6'>
+      <div className='overflow-y-auto flex-1 mb-6 space-y-6'>
         <AnimatePresence>
           {isGenerating && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className='relative w-full max-w-[512px] mx-auto aspect-square bg-gray-200 dark:bg-gray-700 rounded-2xl overflow-hidden'>
+              className='relative w-full max-w-[512px] mx-auto aspect-square bg-gray-200 rounded-2xl overflow-hidden'>
               <div className='absolute inset-0 shimmer-effect'></div>
             </motion.div>
           )}
@@ -72,7 +72,7 @@ export default function ImageGenerationInterface() {
               <a
                 href={generatedImage}
                 download='mirage_ai_image.png'
-                className='absolute flex items-center px-4 py-2 text-sm font-medium text-gray-900 transition-colors duration-200 bg-white rounded-full shadow-lg bottom-4 right-4 dark:bg-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700'>
+                className='flex absolute right-4 bottom-4 items-center px-4 py-2 text-sm font-medium text-white bg-opacity-50 rounded-full shadow-lg transition-colors duration-200 hover:bg-opacity-70'>
                 <Download size={16} className='mr-2' /> Download
               </a>
             </motion.div>
@@ -82,7 +82,7 @@ export default function ImageGenerationInterface() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className='flex items-center p-4 text-red-800 bg-red-100 dark:text-red-100 dark:bg-red-900 rounded-2xl'>
+              className='flex items-center p-4 text-red-800 bg-red-100 rounded-2xl dark:text-red-100 dark:bg-red-900'>
               <AlertCircle size={20} className='flex-shrink-0 mr-2' />
               <p>{error}</p>
             </motion.div>
@@ -95,15 +95,15 @@ export default function ImageGenerationInterface() {
           value={prompt}
           onChange={(e) => setPrompt(e.target.value)}
           placeholder='Describe the image you want to generate...'
-          className='flex-1 px-4 py-3 bg-gray-100 border border-gray-300 rounded-full dark:bg-gray-700 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400'
+          className='flex-1 px-4 py-3 bg-white rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500'
         />
         <button
           type='submit'
           disabled={isGenerating || !prompt.trim()}
-          className={`bg-blue-500 hover:bg-blue-600 text-white rounded-full p-3 transition-colors duration-200 ${
+          className={`text-white rounded-full p-3 transition-colors duration-200 bg-black ${
             isGenerating || !prompt.trim()
               ? 'opacity-50 cursor-not-allowed'
-              : ''
+              : 'hover:bg-gray-800 dark:hover:bg-gray-200'
           }`}>
           <Send size={20} />
         </button>
