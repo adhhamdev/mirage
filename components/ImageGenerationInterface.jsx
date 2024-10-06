@@ -52,7 +52,7 @@ export default function ImageGenerationInterface() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className='overflow-hidden relative mx-auto w-full bg-gray-200 rounded-2xl max-w-96 aspect-square'>
+              className='overflow-hidden relative mx-auto w-full bg-gray-200 rounded-2xl aspect-square max-w-[300px] sm:max-w-[400px]'>
               <div className='absolute inset-0 shimmer-effect'></div>
             </motion.div>
           )}
@@ -61,19 +61,19 @@ export default function ImageGenerationInterface() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className='relative mx-auto w-full max-w-96 aspect-square'>
+              className='relative mx-auto w-full aspect-square max-w-[300px] sm:max-w-[400px]'>
               <Image
                 src={generatedImage}
                 alt='Mirage AI Image'
                 className='object-cover rounded-2xl'
                 fill
-                sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+                sizes='(max-width: 640px) 300px, 400px'
               />
               <a
                 href={generatedImage}
                 download='mirage_ai_image.png'
-                className='flex absolute right-4 bottom-4 items-center px-4 py-2 text-sm font-medium text-white bg-opacity-50 rounded-full shadow-lg transition-colors duration-200 hover:bg-opacity-70'>
-                <Download size={16} className='mr-2' /> Download
+                className='flex absolute right-2 bottom-2 items-center px-3 py-1 text-xs font-medium text-white bg-black bg-opacity-50 rounded-full shadow-lg transition-colors duration-200 sm:right-4 sm:bottom-4 sm:px-4 sm:py-2 sm:text-sm hover:bg-opacity-70'>
+                <Download size={14} className='mr-1 sm:mr-2' /> Download
               </a>
             </motion.div>
           )}
@@ -89,23 +89,25 @@ export default function ImageGenerationInterface() {
           )}
         </AnimatePresence>
       </div>
-      <form onSubmit={handleSubmit} className='flex items-center space-x-2'>
+      <form
+        onSubmit={handleSubmit}
+        className='flex flex-col items-center space-y-2 sm:flex-row sm:space-y-0 sm:space-x-2'>
         <input
           type='text'
           value={prompt}
           onChange={(e) => setPrompt(e.target.value)}
           placeholder='Describe the image you want to generate...'
-          className='flex-1 px-4 py-3 bg-white rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500'
+          className='px-4 py-3 w-full bg-white rounded-full border border-gray-300 sm:flex-1 focus:outline-none focus:ring-2 focus:ring-gray-500'
         />
         <button
           type='submit'
           disabled={isGenerating || !prompt.trim()}
-          className={`text-white rounded-full p-3 transition-colors duration-200 bg-black ${
+          className={`w-full sm:w-auto text-white rounded-full p-3 transition-colors duration-200 bg-black ${
             isGenerating || !prompt.trim()
               ? 'opacity-50 cursor-not-allowed'
               : 'hover:bg-gray-800 dark:hover:bg-gray-200'
           }`}>
-          <Send size={20} />
+          <Send size={20} className='mx-auto' />
         </button>
       </form>
     </motion.div>
