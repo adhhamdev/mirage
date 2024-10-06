@@ -44,7 +44,7 @@ export default function ImageGenerationInterface() {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className='flex flex-col flex-1 p-4 bg-gray-100 rounded-3xl shadow-lg sm:p-6'>
+      className='flex flex-col flex-1 bg-gray-100 rounded-3xl shadow-lg sm:p-4'>
       <div className='overflow-y-auto flex-1 mb-6 space-y-6'>
         <AnimatePresence>
           {isGenerating && (
@@ -52,7 +52,7 @@ export default function ImageGenerationInterface() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className='overflow-hidden relative mx-auto w-full bg-gray-200 rounded-2xl aspect-square max-w-[300px] sm:max-w-[400px]'>
+              className='overflow-hidden relative mx-auto w-full bg-gray-100 rounded-2xl aspect-square max-w-[300px] sm:max-w-[400px]'>
               <div className='absolute inset-0 shimmer-effect'></div>
             </motion.div>
           )}
@@ -102,12 +102,13 @@ export default function ImageGenerationInterface() {
         <button
           type='submit'
           disabled={isGenerating || !prompt.trim()}
-          className={`w-full sm:w-auto text-white rounded-full p-3 transition-colors duration-200 bg-black ${
+          className={`flex items-center w-full justify-center sm:w-auto text-white rounded-full p-3 transition-colors duration-200 bg-black ${
             isGenerating || !prompt.trim()
               ? 'opacity-50 cursor-not-allowed'
               : 'hover:bg-gray-800 dark:hover:bg-gray-200'
           }`}>
-          <Send size={20} className='mx-auto' />
+          <Send size={20} className='mr-2 sm:mx-auto' />
+          <span className='block sm:hidden'>Generate</span>
         </button>
       </form>
     </motion.div>
