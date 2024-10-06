@@ -40,7 +40,7 @@ export default function ImageGenerationInterface() {
       });
 
       if (!response.ok) {
-        throw new Error('Failed to generate image, please try again.');
+        throw new Error('Failed to generate image');
       }
 
       const data = await response.json();
