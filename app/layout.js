@@ -49,15 +49,6 @@ export const metadata = {
       'max-snippet': -1,
     },
   },
-  icons: {
-    icon: '/icon?<generated>',
-    shortcut: '/icon?<generated>',
-    apple: '/apple-icon?<generated>',
-    other: {
-      rel: 'apple-touch-icon-precomposed',
-      url: '/apple-icon?<generated>',
-    },
-  },
 };
 
 export default function RootLayout({ children }) {
