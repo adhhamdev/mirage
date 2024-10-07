@@ -5,12 +5,17 @@ export const runtime = 'edge';
 
 export async function POST(req) {
   try {
-    const { prompt, width, height } = await req.json();
+    const { prompt, width, height, mode } = await req.json();
 
-    console.log('Generating image:', prompt, width, height);
+    console.log('Generating image:', prompt, width, height, mode);
+
+    const modelId =
+      mode === 'fast'
+        ? 'black-forest-labs/FLUX.1-schnell'
+        : 'black-forest-labs/FLUX.1-dev';
 
     const response = await fetch(
-      'https://api-inference.huggingface.co/models/black-forest-labs/FLUX.1-dev',
+      `https://api-inference.huggingface.co/models/${modelId}`,
       {
         headers: {
           Authorization: `Bearer ${process.env.HUGGINGFACE_API_KEY}`,

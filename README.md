@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Mirage AI
+
+Mirage AI is a powerful and intuitive image generation platform that leverages cutting-edge AI technology to transform your ideas into stunning visuals.
+
+## Features
+
+- **Text-to-Image Generation**: Convert your text descriptions into high-quality images using advanced AI models.
+- **Customizable Aspect Ratios**: Choose from various aspect ratios including 1:1, 4:3, 16:9, and 9:16 to suit your needs.
+- **Responsive Design**: Fully responsive interface that works seamlessly across desktop and mobile devices.
+- **Real-time Feedback**: Visual loading indicators and error handling for a smooth user experience.
+- **Image Download**: Easily download generated images for further use or sharing.
+
+## Tech Stack
+
+- **Frontend**: React, Next.js 14, Tailwind CSS
+- **Backend**: Next.js API Routes (Edge Runtime)
+- **AI Integration**: Hugging Face Inference API
+- **Image Storage**: Vercel Blob Storage
+- **Animation**: Framer Motion
+- **Icons**: Lucide React
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Node.js (v14 or later)
+- npm or yarn
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+1. Clone the repository:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+   ```
+   git clone https://github.com/your-username/mirage-ai.git
+   cd mirage-ai
+   ```
 
-## Learn More
+2. Install dependencies:
 
-To learn more about Next.js, take a look at the following resources:
+   ```
+   npm install
+   # or
+   yarn install
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Set up environment variables:
+   Create a `.env.local` file in the root directory and add the following:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+   ```
+   HUGGINGFACE_API_KEY=your_huggingface_api_key
+   ```
 
-## Deploy on Vercel
+4. Run the development server:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```
+   npm run dev
+   # or
+   yarn dev
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+5. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
+
+## Usage
+
+1. Enter a descriptive prompt in the text input field.
+2. Select your desired aspect ratio.
+3. Click the "Generate" button to create your image.
+4. Once generated, you can download the image using the download button.
+
+## Deployment
+
+This project is set up for easy deployment on Vercel. Simply connect your GitHub repository to Vercel and it will automatically deploy your application.
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgements
+
+- [Hugging Face](https://huggingface.co/) for providing the AI model API
+- [Vercel](https://vercel.com/) for hosting and Blob storage
+- [Tailwind CSS](https://tailwindcss.com/) for the utility-first CSS framework
+- [Framer Motion](https://www.framer.com/motion/) for smooth animations

@@ -1,7 +1,7 @@
 'use client';
 
 import { AnimatePresence, motion } from 'framer-motion';
-import { AlertCircle, Download, Send } from 'lucide-react';
+import { AlertCircle, Download, Send, Shield, Zap } from 'lucide-react';
 import Image from 'next/image';
 import { useState } from 'react';
 
@@ -12,6 +12,11 @@ const aspectRatios = [
   { label: '9:16', value: 'portrait', width: 288, height: 512 },
 ];
 
+const generationModes = [
+  { label: 'Fast', value: 'fast', icon: <Zap size={16} /> },
+  { label: 'Quality', value: 'quality', icon: <Shield size={16} /> },
+];
+
 export default function ImageGenerationInterface() {
   const [prompt, setPrompt] = useState('');
   const [generatedImage, setGeneratedImage] = useState(null);
@@ -20,6 +25,7 @@ export default function ImageGenerationInterface() {
   const [selectedAspectRatio, setSelectedAspectRatio] = useState(
     aspectRatios[0]
   );
+  const [selectedMode, setSelectedMode] = useState(generationModes[0]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -36,6 +42,7 @@ export default function ImageGenerationInterface() {
           prompt,
           width: selectedAspectRatio.width,
           height: selectedAspectRatio.height,
+          mode: selectedMode.value,
         }),
       });
 
@@ -108,30 +115,59 @@ export default function ImageGenerationInterface() {
           )}
         </AnimatePresence>
       </div>
-      <div className='mb-4'>
-        <p className='mb-2 text-sm font-medium text-gray-700'>
-          Select aspect ratio:
-        </p>
-        <div className='flex flex-wrap gap-2'>
-          {aspectRatios.map((ratio) => (
-            <label
-              key={ratio.value}
-              className={`flex items-center justify-center px-3 py-2 text-sm font-medium rounded-full cursor-pointer transition-colors duration-200 ${
-                selectedAspectRatio.value === ratio.value
-                  ? 'bg-black text-white'
-                  : 'bg-white text-gray-700 hover:bg-gray-100'
-              }`}>
-              <input
-                type='radio'
-                name='aspectRatio'
-                value={ratio.value}
-                checked={selectedAspectRatio.value === ratio.value}
-                onChange={() => setSelectedAspectRatio(ratio)}
-                className='sr-only'
-              />
-              {ratio.label}
-            </label>
-          ))}
+      <div className='mb-4 space-y-4'>
+        <div>
+          <p className='mb-2 text-sm font-medium text-gray-700 text-center sm:text-left'>
+            Select aspect ratio:
+          </p>
+          <div className='flex flex-wrap gap-2 justify-center sm:justify-start mb-6'>
+            {aspectRatios.map((ratio) => (
+              <label
+                key={ratio.value}
+                className={`flex items-center justify-center px-3 py-2 text-sm font-medium rounded-full cursor-pointer transition-colors duration-200 ${
+                  selectedAspectRatio.value === ratio.value
+                    ? 'bg-black text-white'
+                    : 'bg-white text-gray-700 hover:bg-gray-100'
+                }`}>
+                <input
+                  type='radio'
+                  name='aspectRatio'
+                  value={ratio.value}
+                  checked={selectedAspectRatio.value === ratio.value}
+                  onChange={() => setSelectedAspectRatio(ratio)}
+                  className='sr-only'
+                />
+                {ratio.label}
+              </label>
+            ))}
+          </div>
+        </div>
+        <div>
+          <p className='mb-2 text-sm font-medium text-gray-700 text-center sm:text-left'>
+            Select generation mode:
+          </p>
+          <div className='flex flex-wrap gap-2 justify-center sm:justify-start'>
+            {generationModes.map((mode) => (
+              <label
+                key={mode.value}
+                className={`flex items-center justify-center px-3 py-2 text-sm font-medium rounded-full cursor-pointer transition-colors duration-200 ${
+                  selectedMode.value === mode.value
+                    ? 'bg-black text-white'
+                    : 'bg-white text-gray-700 hover:bg-gray-100'
+                }`}>
+                <input
+                  type='radio'
+                  name='generationMode'
+                  value={mode.value}
+                  checked={selectedMode.value === mode.value}
+                  onChange={() => setSelectedMode(mode)}
+                  className='sr-only'
+                />
+                {mode.icon}
+                <span className='ml-2'>{mode.label}</span>
+              </label>
+            ))}
+          </div>
         </div>
       </div>
       <form
