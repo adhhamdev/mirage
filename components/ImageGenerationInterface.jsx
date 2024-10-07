@@ -85,7 +85,7 @@ export default function ImageGenerationInterface() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className='relative mx-auto w-full max-w-[400px]'
+              className='relative mx-auto w-full max-w-[400px] bg-gray-200 rounded-3xl'
               style={{
                 aspectRatio: `${selectedAspectRatio.width} / ${selectedAspectRatio.height}`,
               }}>
@@ -120,10 +120,10 @@ export default function ImageGenerationInterface() {
       </div>
       <div className='mb-4 space-y-4'>
         <div>
-          <p className='mb-2 text-sm font-medium text-gray-700 text-center sm:text-left'>
+          <p className='mb-2 text-sm font-medium text-center text-gray-700 sm:text-left'>
             Select aspect ratio:
           </p>
-          <div className='flex flex-wrap gap-2 justify-center sm:justify-start mb-6'>
+          <div className='flex flex-wrap gap-2 justify-center mb-6 sm:justify-start'>
             {aspectRatios.map((ratio) => (
               <label
                 key={ratio.value}
@@ -147,7 +147,7 @@ export default function ImageGenerationInterface() {
           </div>
         </div>
         <div>
-          <p className='mb-2 text-sm font-medium text-gray-700 text-center sm:text-left'>
+          <p className='mb-2 text-sm font-medium text-center text-gray-700 sm:text-left'>
             Select generation mode:
           </p>
           <div className='flex flex-wrap gap-2 justify-center sm:justify-start'>
