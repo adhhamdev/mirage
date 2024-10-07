@@ -20,14 +20,6 @@ export const metadata = {
     title: 'Mirage AI - Imagine. Generate. Create.',
     description:
       'Transform your ideas into stunning visuals with Mirage AI. Our cutting-edge AI technology brings your imagination to life.',
-    images: [
-      {
-        url: 'https://mirageai.vercel.app/og-image.png',
-        width: 1200,
-        height: 630,
-        alt: 'Mirage AI - AI-Powered Image Generation',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
@@ -36,7 +28,6 @@ export const metadata = {
     title: 'Mirage AI - AI-Powered Image Generation',
     description:
       'Transform your ideas into stunning visuals with Mirage AI. Our cutting-edge AI technology brings your imagination to life.',
-    images: ['https://mirageai.vercel.app/og-image.png'],
   },
   robots: {
     index: true,
