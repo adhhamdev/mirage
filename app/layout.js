@@ -6,23 +6,37 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: 'Mirage AI - Imagine. Generate. Create.',
-  description: 'Generate images from your words using AI',
+  title: 'Mirage AI - AI-Powered Image Generation',
+  description:
+    'Transform your ideas into stunning visuals with Mirage AI. Our cutting-edge AI technology brings your imagination to life through text-to-image generation.',
   keywords:
-    'AI, image generation, text-to-image, artificial intelligence, creative tools',
+    'AI, image generation, text-to-image, artificial intelligence, creative tools, Mirage AI',
   author: 'Adhham Safwan',
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: 'https://mirageai.vercel.app',
     site_name: 'Mirage AI',
-    title: 'Mirage - Imagine. Generate. Create.',
-    description: 'Generate stunning images from your words using AI',
+    title: 'Mirage AI - Imagine. Generate. Create.',
+    description:
+      'Transform your ideas into stunning visuals with Mirage AI. Our cutting-edge AI technology brings your imagination to life.',
+    images: [
+      {
+        url: 'https://mirageai.vercel.app/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Mirage AI - AI-Powered Image Generation',
+      },
+    ],
   },
   twitter: {
-    handle: '@MirageAI',
+    card: 'summary_large_image',
     site: '@MirageAI',
-    cardType: 'summary_large_image',
+    creator: '@MirageAI',
+    title: 'Mirage AI - AI-Powered Image Generation',
+    description:
+      'Transform your ideas into stunning visuals with Mirage AI. Our cutting-edge AI technology brings your imagination to life.',
+    images: ['https://mirageai.vercel.app/og-image.png'],
   },
   robots: {
     index: true,
@@ -33,6 +47,15 @@ export const metadata = {
       'max-video-preview': -1,
       'max-image-preview': 'large',
       'max-snippet': -1,
+    },
+  },
+  icons: {
+    icon: '/icon?<generated>',
+    shortcut: '/icon?<generated>',
+    apple: '/apple-icon?<generated>',
+    other: {
+      rel: 'apple-touch-icon-precomposed',
+      url: '/apple-icon?<generated>',
     },
   },
 };
