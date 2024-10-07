@@ -12,14 +12,6 @@ export default function Icon() {
   return new ImageResponse(
     (
       <div className='flex justify-center items-center w-full h-full text-2xl font-bold bg-white'>
-        <svg width='0' height='0'>
-          <filter id='gradient'>
-            <feColorMatrix
-              type='matrix'
-              values='0.33 0.33 0.33 0 0 0.33 0.33 0.33 0 0 0.33 0.33 0.33 0 0 0 0 0 1 0'
-            />
-          </filter>
-        </svg>
         <span className='text-transparent bg-clip-text bg-gradient-to-r from-gray-800 via-gray-600 to-gray-600 filter-gradient'>
           M
         </span>
