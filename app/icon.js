@@ -11,8 +11,24 @@ export const contentType = 'image/png';
 export default function Icon() {
   return new ImageResponse(
     (
-      <div className='flex justify-center items-center w-full h-full text-2xl font-bold bg-white'>
-        <span className='text-transparent bg-clip-text bg-gradient-to-r from-gray-800 via-gray-600 to-gray-600 filter-gradient'>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          width: '100%',
+          height: '100%',
+          fontSize: '1.5rem',
+          fontWeight: 'bold',
+          backgroundColor: 'white',
+        }}>
+        <span
+          style={{
+            background: 'linear-gradient(to right, #1F2937, #4B5563, #4B5563)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            filter: 'url(#gradient)',
+          }}>
           M
         </span>
       </div>
