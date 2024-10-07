@@ -11,17 +11,7 @@ export const contentType = 'image/png';
 export default function Icon() {
   return new ImageResponse(
     (
-      <div
-        style={{
-          fontSize: 24,
-          background: 'white',
-          width: '100%',
-          height: '100%',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          fontWeight: 700,
-        }}>
+      <div className='flex justify-center items-center w-full h-full text-2xl font-bold bg-white'>
         <svg width='0' height='0'>
           <filter id='gradient'>
             <feColorMatrix
@@ -30,13 +20,7 @@ export default function Icon() {
             />
           </filter>
         </svg>
-        <span
-          style={{
-            background: 'linear-gradient(to right, #1F2937, #475569, #52525B)',
-            backgroundClip: 'text',
-            color: 'transparent',
-            filter: 'url(#gradient)',
-          }}>
+        <span className='text-transparent bg-clip-text bg-gradient-to-r from-gray-800 via-gray-600 to-gray-600 filter-gradient'>
           M
         </span>
       </div>
