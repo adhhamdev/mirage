@@ -8,8 +8,8 @@ import { useState } from 'react';
 const aspectRatios = [
   { label: '1:1', value: 'square', width: 512, height: 512 },
   { label: '4:3', value: 'standard', width: 512, height: 384 },
-  { label: '16:9', value: 'widescreen', width: 512, height: 288 },
-  { label: '9:16', value: 'portrait', width: 288, height: 512 },
+  { label: '16:9', value: 'widescreen', width: 1024, height: 576 },
+  { label: '9:16', value: 'portrait', width: 576, height: 1024 },
 ];
 
 const generationModes = [
@@ -70,10 +70,13 @@ export default function ImageGenerationInterface() {
         <AnimatePresence>
           {isGenerating && (
             <motion.div
+              style={{
+                aspectRatio: `${selectedAspectRatio.width} / ${selectedAspectRatio.height}`,
+              }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className='overflow-hidden relative mx-auto w-full bg-gray-100 rounded-3xl aspect-square max-w-[400px]'>
+              className={`overflow-hidden relative mx-auto w-full bg-gray-100 rounded-3xl max-w-[400px]`}>
               <div className='absolute inset-0 shimmer-effect'></div>
             </motion.div>
           )}
@@ -128,14 +131,15 @@ export default function ImageGenerationInterface() {
                   selectedAspectRatio.value === ratio.value
                     ? 'bg-black text-white'
                     : 'bg-white text-gray-700 hover:bg-gray-100'
-                }`}>
+                } ${isGenerating && 'opacity-50 cursor-not-allowed'}`}>
                 <input
                   type='radio'
                   name='aspectRatio'
                   value={ratio.value}
                   checked={selectedAspectRatio.value === ratio.value}
                   onChange={() => setSelectedAspectRatio(ratio)}
-                  className='sr-only'
+                  className='sr-only disabled:opacity-50 disabled:cursor-not-allowed'
+                  disabled={isGenerating}
                 />
                 {ratio.label}
               </label>
@@ -179,6 +183,8 @@ export default function ImageGenerationInterface() {
           onChange={(e) => setPrompt(e.target.value)}
           placeholder='Describe the image you want to generate...'
           className='px-4 py-3 w-full bg-white rounded-full border border-gray-300 sm:flex-1 focus:outline-none focus:ring-2 focus:ring-gray-500'
+          autoFocus
+          tabIndex={0}
         />
         <button
           type='submit'

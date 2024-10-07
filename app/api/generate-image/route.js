@@ -24,6 +24,10 @@ export async function POST(req) {
         method: 'POST',
         body: JSON.stringify({
           inputs: prompt,
+          parameters: {
+            width: width,
+            height: height,
+          },
         }),
       }
     );
