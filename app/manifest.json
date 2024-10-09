@@ -28,19 +28,18 @@
   ],
   "screenshots": [
     {
-      "src": "/screenshots/screenshot-1.png",
-      "sizes": "1024x768",
-      "type": "image/png"
+      "src": "/screenshots/mirage-desktop.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Homescreen of Mirage on desktop"
     },
     {
-      "src": "/screenshots/screenshot-2.png",
-      "sizes": "1024x768",
-      "type": "image/png"
-    },
-    {
-      "src": "/screenshots/screenshot-3.png",
-      "sizes": "1024x768",
-      "type": "image/png"
+      "src": "/screenshots/mirage-mobile.jpg",
+      "sizes": "540x1200",
+      "type": "image/jpg",
+      "form_factor": "narrow",
+      "label": "Homescreen of Mirage on mobile"
     }
   ],
   "display_override": ["standalone", "fullscreen"],
