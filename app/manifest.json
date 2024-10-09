@@ -1,0 +1,53 @@
+{
+  "name": "Mirage AI",
+  "short_name": "Mirage",
+  "description": "Imagine. Generate. Create.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "orientation": "any",
+  "scope": "/",
+  "lang": "en-US",
+  "categories": [
+    "productivity",
+    "utilities",
+    "image",
+    "ai",
+    "art",
+    "design",
+    "creativity",
+    "image-generation"
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/screenshot-1.png",
+      "sizes": "1024x768",
+      "type": "image/png"
+    },
+    {
+      "src": "/screenshots/screenshot-2.png",
+      "sizes": "1024x768",
+      "type": "image/png"
+    },
+    {
+      "src": "/screenshots/screenshot-3.png",
+      "sizes": "1024x768",
+      "type": "image/png"
+    }
+  ],
+  "display_override": ["standalone", "fullscreen"],
+  "launch_handler": {
+    "client_mode": ["focus-existing", "auto"]
+  },
+  "edge_side_panel": {
+    "preferred_width": 400
+  }
+}

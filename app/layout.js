@@ -1,5 +1,14 @@
+import { Poppins } from 'next/font/google';
+import Script from 'next/script';
+import './globals.css';
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+});
+
 export const metadata = {
-  title: 'Mirage AI - AI-Powered Image Generation',
+  title: 'Mirage - Imagine. Generate. Create.',
   description:
     'Transform your ideas into stunning visuals with Mirage AI. Our cutting-edge AI technology brings your imagination to life through text-to-image generation.',
   keywords:
@@ -38,7 +47,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang='en'>
-      <body>{children}</body>
+      <body className={poppins.className}>
+        {children}
+        <Script src='/sw-init.js' strategy='lazyOnload' />
+      </body>
     </html>
   );
 }
