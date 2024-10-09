@@ -1,5 +1,4 @@
 import { Poppins } from 'next/font/google';
-import Script from 'next/script';
 import './globals.css';
 
 const poppins = Poppins({
@@ -47,10 +46,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang='en'>
-      <body className={poppins.className}>
-        {children}
-        <Script src='/sw-init.js' strategy='lazyOnload' />
-      </body>
+      <body className={poppins.className}>{children}</body>
     </html>
   );
 }
