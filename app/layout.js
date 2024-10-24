@@ -8,11 +8,11 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: 'Mirage - Imagine. Generate. Create.',
+  title: 'Mirage AI - Imagine. Generate. Create.',
   description:
     'Transform your ideas into stunning visuals with Mirage AI. Our cutting-edge AI technology brings your imagination to life through text-to-image generation.',
   keywords:
-    'AI, image generation, text-to-image, artificial intelligence, creative tools, Mirage AI',
+    'AI image generation, text-to-image conversion, artificial intelligence art, creative design tools, Mirage AI platform, digital art creation, visual content generation, AI-assisted creativity, machine learning art, innovative imaging technology, Flux AI',
   author: 'Adhham Safwan',
   openGraph: {
     type: 'website',
@@ -43,8 +43,8 @@ export const metadata = {
     },
   },
   other: {
-    "google-site-verification": "0R28Xy-oyNhcE2_MB10Jrkoayy5JcPf7mkx89IIMySk"
-  }
+    'google-site-verification': '0R28Xy-oyNhcE2_MB10Jrkoayy5JcPf7mkx89IIMySk',
+  },
 };
 
 const jsonLd = `{
