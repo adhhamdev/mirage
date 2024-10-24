@@ -1,4 +1,5 @@
 import { Poppins } from 'next/font/google';
+import Script from 'next/script';
 import './globals.css';
 
 const poppins = Poppins({
@@ -43,9 +44,30 @@ export const metadata = {
   },
 };
 
+const jsonLd = `{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Mirage AI",
+  "alternateName": "Mirage AI",
+  "url": "https://mirageai.vercel.app",
+  "description": "Mirage AI is an AI-powered image generation tool that allows you to create stunning visuals from text descriptions extremely fast and in the best quality.",
+  "sameAs": ["https://x.com/AdhhamDev"],
+  "creator": {
+    "@type": "Person",
+    "name": "Adhham Safwan"
+  },
+  "applicationCategory": "AIApplication",
+  "operatingSystem": "Web"
+}`;
+
 export default function RootLayout({ children }) {
   return (
     <html lang='en'>
+      <head>
+        <Script id='json-ld' type='application/ld+json'>
+          {JSON.stringify(jsonLd)}
+        </Script>
+      </head>
       <body className={poppins.className}>{children}</body>
     </html>
   );
