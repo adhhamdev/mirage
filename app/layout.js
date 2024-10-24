@@ -42,6 +42,9 @@ export const metadata = {
       'max-snippet': -1,
     },
   },
+  other: {
+    "google-site-verification": "0R28Xy-oyNhcE2_MB10Jrkoayy5JcPf7mkx89IIMySk"
+  }
 };
 
 const jsonLd = `{
