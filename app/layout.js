@@ -52,9 +52,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang='en'>
       <head>
-        <Script id='json-ld' type='application/ld+json'>
-          {JSON.stringify(websiteSchema)}
-        </Script>
+        <Script
+          id='json-ld'
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
       </head>
       <body className={poppins.className}>{children}</body>
     </html>
