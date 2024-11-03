@@ -1,5 +1,4 @@
 import { Poppins } from 'next/font/google';
-import Script from 'next/script';
 import './globals.css';
 import { websiteSchema } from './lib/jsonld-schema';
 
@@ -52,8 +51,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang='en'>
       <head>
-        <Script
-          id='json-ld'
+        <script
           type='application/ld+json'
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
