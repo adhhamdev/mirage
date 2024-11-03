@@ -1,6 +1,6 @@
 import { Poppins } from 'next/font/google';
 import './globals.css';
-import { websiteSchema } from './lib/jsonld-schema';
+import { personSchema, websiteSchema } from './lib/jsonld-schema';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -53,7 +53,9 @@ export default function RootLayout({ children }) {
       <head>
         <script
           type='application/ld+json'
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify([websiteSchema, personSchema]),
+          }}
         />
       </head>
       <body className={poppins.className}>{children}</body>

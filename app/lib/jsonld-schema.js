@@ -2,60 +2,55 @@ export const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebApplication',
   name: 'Mirage AI',
-  alternateName: 'Mirage AI Image Generator',
-  url: 'https://mirageai.vercel.app',
   description:
-    'Mirage AI is an AI-powered image generation tool that allows you to create stunning visuals from text descriptions extremely fast and in the best quality.',
-  applicationCategory: [
-    'Artificial Intelligence',
-    'Image Generation',
-    'Design Tools',
-  ],
+    'Transform your ideas into stunning visuals with Mirage AI. Our cutting-edge AI technology brings your imagination to life through text-to-image generation.',
+  url: 'https://mirageai.vercel.app',
+  applicationCategory: ['Multimedia', 'Design', 'Artificial Intelligence'],
   operatingSystem: 'Any',
-  featureList: [
-    'Text-to-Image Generation',
-    'Multiple Aspect Ratios',
-    'Fast and Quality Generation Modes',
-    'High-Resolution Output',
-    'Instant Downloads',
-  ],
+  author: {
+    '@type': 'Person',
+    name: 'Adhham Safwan',
+  },
   screenshot: [
     {
       '@type': 'ImageObject',
       url: 'https://mirageai.vercel.app/screenshots/mirage-desktop.png',
-      caption: 'Mirage AI Desktop Interface',
+      caption: 'Homescreen of Mirage on desktop',
     },
     {
       '@type': 'ImageObject',
       url: 'https://mirageai.vercel.app/screenshots/mirage-mobile.jpg',
-      caption: 'Mirage AI Mobile Interface',
+      caption: 'Homescreen of Mirage on mobile',
     },
   ],
+  featureList: [
+    'Text-to-Image Generation',
+    'Customizable Aspect Ratios',
+    'Responsive Design',
+    'Real-time Feedback',
+    'Image Download',
+  ],
+  keywords:
+    'AI image generation, text-to-image conversion, artificial intelligence art, creative design tools, Mirage AI platform, digital art creation, visual content generation, AI-assisted creativity, machine learning art, innovative imaging technology, Flux AI',
+  softwareVersion: '0.1.0',
   creator: {
-    '@type': 'Person',
-    name: 'Adhham Safwan',
-    url: 'https://x.com/AdhhamDev',
-  },
-  publisher: {
     '@type': 'Organization',
     name: 'Mirage AI',
+    url: 'https://mirageai.vercel.app',
     logo: {
       '@type': 'ImageObject',
       url: 'https://mirageai.vercel.app/logo.png',
     },
+    sameAs: ['https://twitter.com/MirageAI'],
   },
-  browserRequirements: 'Requires JavaScript. Requires HTML5.',
-  softwareVersion: '1.0',
-  keywords: [
-    'AI image generation',
-    'text to image',
-    'artificial intelligence art',
-    'creative design tools',
-    'digital art creation',
-    'AI art generator',
-    'visual content generation',
-    'AI image creator',
-    'machine learning art',
-    'AI design tool',
-  ],
+};
+
+export const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Adhham Safwan',
+  url: 'https://adhham.me',
+  sameAs: ['https://x.com/AdhhamDev', 'https://github.com/adhhamdev'],
+  image: 'https://adhham.me/avatar.png',
+  jobTitle: 'Software Engineer',
 };
